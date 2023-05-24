@@ -1,0 +1,76 @@
+﻿@model List<WebApp_Manha.Models.ClienteViewModel>
+
+
+
+<div class="card">
+    <div class="card-header">
+        <h2>Lista de Clientes    </h2>
+    </div>
+        <div class="card-body">
+            <div class="row">
+
+                <div class="col-2">
+
+                    <a href="/Clientes/Cadastro" class="btn btn-success">
+                        Novo Cliente    
+                    </a>
+
+                </div>
+                <div class="col-3">
+                    <select name="tipoBusca" class="form-control">
+                        <option value="0">Todos os campos</option>
+                        <option value="id">Busca por Id</option>
+                        <option value="nome">Busca por Nome</option>
+                        <option value="telefone">Busca por Telefone</option>
+                    </select>
+                </div>
+
+                <div class="col-4">
+                    <input class="form-control" type="text" name="Pesquisa" />
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-info" type="submit" >
+                        Pesquisar
+                    </button>
+                </div>
+
+            </div>
+
+
+
+
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Nome</td>
+                        <td>@item.Telefone</td>
+                        <td>
+                            <a href="/Clientes/Editar/@item.Id" class="btn btn-warning">
+                                Editar
+                            </a>
+                            <a href="/Clientes/Compras/@item.Id" class="btn btn-primary">
+                                Todas as compras
+                            </a>
+                            <a href="/Clientes/Excluir/@item.Id" class="btn btn-danger">
+                                Excluir
+                            </a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

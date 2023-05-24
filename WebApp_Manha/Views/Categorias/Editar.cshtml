@@ -1,0 +1,43 @@
+﻿@model WebApp_Manha.Entidades.Categoria
+
+<div class="row">
+    <div class=" col-md-4 offset-md-4">
+        <div class=" card"> 
+            <div class=" car-header">
+                <h4>Edição de Categoria</h4>
+            </div>
+            <div class=" car-body">
+                <form action="/Categorias/SalvarDados" method="post" >
+                    <label>Id</label>
+                    <input type="text" readonly name="Id" value="@Model.Id" class="form-control"/>
+
+                    <br/>
+
+                    <label>Nome da Categoria</label>
+                    <input type="text" name="Nome" value=" @Model.Nome" Class="form-control"/>
+
+
+                    <br/>
+                    <label>Ativo</label>
+                    <select name="Ativo" class="form-control">
+                        @if(Model.Ativo){
+                            <option value="true" selected="selected" >Ativado</option>
+                            <option value="false">Desativado</option>
+                        }
+                        else
+
+                        {
+                            <option value="true">Ativado</option>
+                            <option value="false" selected="selected">Desativado</option>
+                        }
+                    </select>
+                    <br/>
+                    <button type="submit" class="btn btn-success">
+                        Salvar
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

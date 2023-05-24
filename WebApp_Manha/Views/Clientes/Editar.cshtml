@@ -1,0 +1,52 @@
+﻿@model WebApp_Manha.Models.ClienteViewModel
+
+<div class="row">
+
+    <div class="col-4">
+    </div>
+    <div class="col-4">
+
+        @if (TempData["Erro"] != null)
+        {
+            <div class="alert alert-danger">
+                @TempData["Erro"]
+            </div>
+        }
+
+        <div class="card">
+            <div class="card-header">
+                Cadastro do Cliente
+            </div>
+            <div class="card-body">
+
+                <form action="/Clientes/SalvarDados" method="post">
+                    <label>Nome</label>
+                    <input type="text" name="Nome" class="form-control" value="@Model.Nome" />
+
+                    <br />
+                    <label>Telefone</label>
+                    <input type="text" name="Telefone" class="form-control" value="@Model.Telefone" />
+
+                    <br />
+                    <label>Código</label>
+                    <input type="number" name="Id" class="form-control" value="@Model.Id" />
+
+                    <br />
+                    <button type="submit" class="btn btn-dark">
+                        Salvar Cliente
+                    </button>
+                </form>
+
+
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+    <div class="col-4">
+    </div>
+
+</div>

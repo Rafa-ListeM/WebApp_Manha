@@ -1,0 +1,83 @@
+﻿@model List<WebApp_Manha.Entidades.Categoria>
+
+<div class=" row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                Lista de Categorias
+            </div>
+            <div class="card-body">
+                <form action="/Categorias/Lista" method="get">
+                    <div class="row">
+                        <div class="col-2">
+                            <a class="btn btn-success" href="/Categorias/Cadastro">
+                                Nova Categoria
+                            </a>
+                        </div>
+                        <div class="col-5">
+
+                            <input name="busca" class="form-control" type="text" />
+
+
+                        </div>
+                        <div class=" col-2">
+                            <button type="submit" class="btn btn-primary">
+                                Pesquisar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Categoria</th>
+                            <th>Ativo</th>
+                            <th></th>
+                        </tr>
+                    <thead />
+
+                    <tbody>
+                            @foreach (var categoria in Model)
+                            {
+                            <tr>
+                                <td>@categoria.Id </td>
+                                <td>@categoria.Nome</td>
+                                <td>
+                                            @if (categoria.Ativo)
+                                            {
+                                        <input type="checkbox" checked="checked" disable />
+                                            }
+                                            else
+                                            {
+                                        <input type="checkbox" disable />
+                                            }
+
+                                </td>
+
+                                <td>
+                                    <a href="/Categorias/Editar/@categoria.Id" class="btn btn-warning">
+                                        Editar
+                                    </a>
+                                    <a href="/Categorias/Excluir/@categoria.Id" class="btn btn-danger">
+                                        Excluir
+                                    </a>
+                                </td>
+
+                            </tr>
+
+                            }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+

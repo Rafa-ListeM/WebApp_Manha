@@ -1,0 +1,6 @@
+﻿@model List<WebApp_Manha.Entidades.PermissaoEntidade>
+
+    @foreach(var permissao in Model)
+    {
+        <p>@permissao.Id  <br>  @permissao.Descricao</p>
+    }
