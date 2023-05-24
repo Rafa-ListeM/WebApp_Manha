@@ -3,8 +3,8 @@
 <div class="row">
     <div class="offser-md-4 col-md-4">
         <div class="card">
-            <div class="car-header">
-                Cadastro de Produtos
+            <div class="card-header p-2">
+                 Cadastro de Produtos
             </div>
             <div class="card-body">
                 <form action="/Produtos/SalvarDados" method="post">
@@ -15,20 +15,20 @@
                     <input type="text" name="Valor" class="form-control" />
                     <br />
                     <label>Ativo</label>
-                    <select name="Ativo" class="form-control">
+                    <select name="Ativo" class="form-select">
                         <option value="true">Ativo</option>
                         <option value="false">Inativo</option>
                     </select>
                     <br />
                     <label>Lista de Categorias</label>
-                    <select name="CategoriaId" class="form-control">
+                    <select name="CategoriaId" class="form-select">
                         <option value="0">Selecione Uma Categoria</option>
                         @foreach (var categoria in Model.ListaCategorias)
                         {
                             <option value="@categoria.Id">@categoria.Nome</option>
                         }
                     </select>
-
+                    <br />
                     <button type="submit" class="btn btn-success">
                         Salvar Produto
                     </button>
